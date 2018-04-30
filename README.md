@@ -8,7 +8,7 @@ Just clone the repo, build and run...or download and example build [here](https:
 
 The simulations chooses to keep the first selected box 50% of the times and takes the other box the other half.  
 
-Enter the abount of simulations to do...
+Enter the number of simulations to do...
 ![alt text](https://github.com/PeterBoberg/montyhall/blob/master/Images/1.png)
   
 
