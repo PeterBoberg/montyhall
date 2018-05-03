@@ -7,8 +7,9 @@ public class StringConstants {
     public final static String INVALID_INTEGER_NUMBER = "Invalid integer number";
     public final static String EMPTY_STRING = "";
     public static final String ZERO = "0";
-    public static final String KEEP_FIRST_SELECTION = "Keep you first box";
-    public static String CHANGE_YOUR_MIND = "Take the other box!";
+    public static final String CANT_DECIDE = "Can't decide!";
+    public static final String KEEP_FIRST_SELECTION = "Keep you first box!";
+    public static final String CHANGE_YOUR_MIND = "Take the other box!";
 
     public static String textForNumberOfSimulations(String numberOfSimulations) {
         return "Running " + numberOfSimulations + " simulations...";

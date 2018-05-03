@@ -12,10 +12,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import se.peterboberg.montyhall.utils.StringConstants;
 import se.peterboberg.montyhall.model.SimulationResult;
 import se.peterboberg.montyhall.simulation.MontyHallSimulation;
 import se.peterboberg.montyhall.simulation.MontyHallSimulationImpl;
+import se.peterboberg.montyhall.utils.StringConstants;
 
 import java.math.BigInteger;
 
@@ -108,8 +108,15 @@ public class MainViewController {
         alternateChoiceNumberOfWinsText.setText(result.getWinsBySelectingAlternateBox().toString());
         timesTriedChoosingFirstText.setText(StringConstants.textForTimesTried(result.getSimulationsSelectingFirstBox().toString()));
         timesTriedChoosingAlternateText.setText(StringConstants.textForTimesTried(result.getSimulationsSelectingAlternateBox().toString()));
-        boolean changingWasBestDecision = result.getWinsBySelectingAlternateBox().compareTo(result.getWinsBySelectingFirstBox()) > 0;
-        String bestChoice = changingWasBestDecision ? StringConstants.CHANGE_YOUR_MIND : StringConstants.KEEP_FIRST_SELECTION;
+
+        String bestChoice;
+        if (result.getWinsBySelectingFirstBox().equals(result.getWinsBySelectingAlternateBox()))
+            bestChoice = StringConstants.CANT_DECIDE;
+        else {
+            boolean changingWasBestDecision = result.getWinsBySelectingAlternateBox().compareTo(result.getWinsBySelectingFirstBox()) > 0;
+            bestChoice = changingWasBestDecision ? StringConstants.CHANGE_YOUR_MIND : StringConstants.KEEP_FIRST_SELECTION;
+
+        }
         bestChoiceText.setText(StringConstants.textForBestChioce(bestChoice));
     }
 
